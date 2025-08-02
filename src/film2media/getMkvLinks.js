@@ -20,9 +20,9 @@ export default async function getMkvLinks(pageAddress, type, season, episode) {
       }
     });
     const trailer = $('video').first().attr('src');
-    const sizeAdded = await getSizeOfArrLinks(mkvLinks);
-    if (trailer) sizeAdded.push({ url: trailer });
-    return sizeAdded;
+    // const sizeAdded = await getSizeOfArrLinks(mkvLinks);
+    if (trailer) mkvLinks.push({ url: trailer });
+    return mkvLinks;
   } catch (err) {
     console.error(
       `Failed to get links from Page address in film2media: ${err.message}`
