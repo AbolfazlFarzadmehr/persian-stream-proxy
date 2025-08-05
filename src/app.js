@@ -17,9 +17,9 @@ app.use((req, res, next) => {
   return res.status(403).send('Forbidden: Invalid token');
 });
 
-app.get('/film2media-streams/:infoes', async (req, res, next) => {
-  const infoes = req.params.infoes.split(':');
-  const mkvLinks = await film2media.getAllMkvLinks(infoes);
+app.get('/film2media-streams/:imdbId', async (req, res, next) => {
+  const imdbId = req.params.imdbId;
+  const mkvLinks = await film2media.getAllMkvLinks(imdbId);
   respond(res, mkvLinks);
 });
 
